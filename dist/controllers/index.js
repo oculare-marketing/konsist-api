@@ -20,6 +20,7 @@ __exportStar(require("./getUsersCPF"), exports);
 __exportStar(require("./getFileId"), exports);
 __exportStar(require("./getFiles"), exports);
 __exportStar(require("./putUser"), exports);
+__exportStar(require("./putLGPD"), exports);
 __exportStar(require("./getAgreements"), exports);
 __exportStar(require("./getSchedules"), exports);
 __exportStar(require("./putSchedules"), exports);

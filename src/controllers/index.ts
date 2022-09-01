@@ -5,6 +5,8 @@ export * from "./getFileId"
 export * from "./getFiles"
 export * from "./putUser"
 
+export * from "./putLGPD"
+
 export * from "./getAgreements";
 
 export * from "./getSchedules";

@@ -31,23 +31,23 @@ router.use((req, res, next) => {
     const whitelist = ['hhttps://agendamento.oculareoftalmo.med.br', 'http://127.0.0.1'];
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    // if (req.method == 'OPTIONS') {
-    //     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-    //     return res.status(200).json({});
-    // }
-    // next();
-    if (req.headers['origin'] === 'https://agendamento.oculareoftalmo.med.br') {
-        if (req.method == 'OPTIONS') {
-            res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-            return res.status(200).json({});
-        }
-        next();
-    } else {
-        return res.status(403).json(
-            {
-                'Error': 'Restricted request access'
-            });     
-    } 
+    if (req.method == 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
+    next();
+    // if (req.headers['origin'] === 'https://agendamento.oculareoftalmo.med.br') {
+    //     if (req.method == 'OPTIONS') {
+    //         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+    //         return res.status(200).json({});
+    //     }
+    //     next();
+    // } else {
+    //     return res.status(403).json(
+    //         {
+    //             'Error': 'Restricted request access'
+    //         });     
+    // } 
 });
 /** Routes go here */
 router.use('/', routersUsers_1.default);

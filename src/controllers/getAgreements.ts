@@ -19,22 +19,27 @@ export const getAgreements = async (req: Request, res: Response, next: NextFunct
   Connect()
 .then( async data =>{    
       let doctorId = req.params.doctor_id;
+      let result: AgreementsProps[] = []
       let restrictedAgreements: string[];
-      filteredAgreements.filter(val => {
-        if(val.id === parseInt(doctorId)){
-            restrictedAgreements = val.agreements
-        }
-      })
       let query = `SELECT tc.nom_convenio, tc.id_convenio FROM tab_convenio tc WHERE tc.ind_status = 'Ativo' AND COALESCE(tc.ind_oculto_atendimento, 'N') <> 'S'`;
-      const result = await data.query(query);
-      const resultAgreements: AgreementsProps[] = []
-      result.filter((val: AgreementsProps) =>{
-        if(!restrictedAgreements.includes(val.nom_convenio)){
-            resultAgreements.push(val);
-        }
-      })
+      const resultAgreements = await data.query(query);
+      if(doctorId === undefined){
+        result = resultAgreements;
+      }else{
+        filteredAgreements.filter(val => {
+          if(val.id === parseInt(doctorId)){
+              restrictedAgreements = val.agreements
+          }
+        })
+        resultAgreements.filter((val: AgreementsProps) =>{
+          
+          if(!restrictedAgreements.includes(val.nom_convenio)){
+              result.push(val);
+          }
+        })
+      }
       return res.status(200).json({
-        resultAgreements            
+        result            
       });       
   }).catch(error => {
       logging.error(NAMESPACE, error.message, error);
