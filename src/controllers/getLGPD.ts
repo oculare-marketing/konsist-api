@@ -7,25 +7,18 @@ const pgp = require('pg-promise')({
 
 const NAMESPACE = 'API';
 
-async function putLGPD (req: Request, res: Response) {
+async function getLGPD (req: Request, res: Response) {
   logging.info(NAMESPACE, 'Update schedule result:');    
   
 let params_patient_code = req.params.patient_code;
- Connect()
-.then( async data => {
-      const text = "ue"
 
-      let query = `INSERT INTO arq_paciente_autorizacao_dados (cod_paciente, int_origem_aceite, des_acao) VALUES (${params_patient_code}, 1, 'ACEITE');`;
-
+    Connect().then(async data =>{
+      let query = `SELECT des_acao FROM arq_paciente_autorizacao_dados WHERE cod_paciente = ${params_patient_code}`;
       const result = await data.query(query); 
       return res.status(200).json({
         result
       })
-  }).then(() => {
-    Connect().then(async data =>{
-      let query = `SELECT des_acao FROM arq_paciente_autorizacao_dados WHERE cod_paciente = ${params_patient_code}`
     })
-  })
   
   .catch(error => {
       logging.error(NAMESPACE, error.message, error);
@@ -34,5 +27,5 @@ let params_patient_code = req.params.patient_code;
 };
 
 
-export {putLGPD}
+export {getLGPD}
 

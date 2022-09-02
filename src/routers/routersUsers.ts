@@ -18,7 +18,8 @@ router.put('/put/user', controllers.putUser);
 router.get('/get/file/:file_id', controllers.getFilesId)
 router.get('/get/files/:patient_code', controllers.getFiles)
 
-router.post('/post/LGPD/:patient_code', controllers.putLGPD)
+router.post('/post/LGPD/:patient_code', controllers.postLGPD)
+router.get('/get/LGPD/:patient_code', controllers.getLGPD)
 
 router.get('/get/agreements/:doctor_id', controllers.getAgreements);
 router.get('/get/agreements', controllers.getAgreements);
