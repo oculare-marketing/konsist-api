@@ -38,13 +38,15 @@ const createUsers = async (req, res, next) => {
     const columnset = new pgp.helpers.ColumnSet(['nom_paciente', 'dat_nascimento', 'des_sexo', 'des_endereco', 'des_bairro', 'num_cep', 'num_ddd1', 'num_telefone1', 'num_ddd2', 'num_telefone2', 'num_ddd3', 'num_telefone3', 'nom_paciente_completo', 'des_email', 'num_cpf', 'dat_cadastro', 'dat_atualizacao', 'dat_inclusao'], { table: 'arq_paciente' });
     (0, postgres_1.Connect)()
         .then(async (data) => {
-        const query = pgp.helpers.insert(values, columnset);
+        let query = pgp.helpers.insert(values, columnset);
         const resultBody = req.body;
         const result = await data.query(query);
+        query = `SELECT * FROM arq_paciente WHERE num_cpf LIKE '%${values.num_cpf}%'::varchar`;
+        const resultCPF = await data.query(query);
         logging_1.default.info(NAMESPACE, 'user created: ', result);
         return res.status(200).json({
             result: 'user created successfully',
-            resultBody
+            resultCPF
         });
     }).catch((error) => {
         logging_1.default.error(NAMESPACE, error.message, error);

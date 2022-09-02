@@ -38,15 +38,17 @@ export const createUsers = async (req: Request, res: Response, next: NextFunctio
     
     Connect()
     .then(async (data) => {
-        const query = pgp.helpers.insert(values, columnset)
+        let query = pgp.helpers.insert(values, columnset)
         const resultBody = req.body
         const result = await data.query(query)     
+        query = `SELECT * FROM arq_paciente WHERE num_cpf LIKE '%${values.num_cpf}%'::varchar` ;
+        const resultCPF = await data.query(query)     
         
         logging.info(NAMESPACE, 'user created: ', result);
         
         return res.status(200).json({
             result: 'user created successfully',
-            resultBody
+            resultCPF
         });
     }).catch((error) => {
     logging.error(NAMESPACE, error.message, error);
