@@ -7,6 +7,7 @@ import * as postTwilioVerify from '../twilioVerify';
 import * as postTwilioConfirmation from '../twilioConfirmation';
 import * as postGoogleCalendar from '../googleCalendar';
 import * as postGoogleSheets from '../googleSheets';
+import * as getLGPDText from "../LGPDText"
 
 const router = express.Router();
 
@@ -45,5 +46,7 @@ router.post('/post/confirmation', postTwilioConfirmation.postTwilioConfirmation)
 
 router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
+
+router.get('/get/LGPDText', getLGPDText.getLGPDText);
 
 export default router;

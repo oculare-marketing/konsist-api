@@ -34,6 +34,7 @@ const postTwilioVerify = __importStar(require("../twilioVerify"));
 const postTwilioConfirmation = __importStar(require("../twilioConfirmation"));
 const postGoogleCalendar = __importStar(require("../googleCalendar"));
 const postGoogleSheets = __importStar(require("../googleSheets"));
+const getLGPDText = __importStar(require("../LGPDText"));
 const router = express_1.default.Router();
 router.post('/create/user', controllers.createUsers);
 router.get('/get/users', controllers.getUsers);
@@ -58,5 +59,6 @@ router.post('/post/verify', postTwilioVerify.postTwilioVerify);
 router.post('/post/confirmation', postTwilioConfirmation.postTwilioConfirmation);
 router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
+router.get('/get/LGPDText', getLGPDText.getLGPDText);
 exports.default = router;
 //# sourceMappingURL=routersUsers.js.map
