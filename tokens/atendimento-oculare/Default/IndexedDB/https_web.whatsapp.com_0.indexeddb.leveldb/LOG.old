@@ -1,0 +1,30 @@
+2022/10/03-16:39:30.846 3188 Reusing MANIFEST C:\konsist-api\tokens\atendimento-oculare\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/10/03-16:39:30.847 3188 Recovering log #608
+2022/10/03-16:39:30.889 3188 Reusing old log C:\konsist-api\tokens\atendimento-oculare\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000608.log 
+2022/10/03-16:39:46.525 3d90 Level-0 table #621: started
+2022/10/03-16:39:46.591 3d90 Level-0 table #621: 1218977 bytes OK
+2022/10/03-16:39:46.593 3d90 Delete type=0 #608
+2022/10/03-16:39:47.617 36e8 Compacting 1@1 + 10@2 files
+2022/10/03-16:39:47.695 36e8 Generated table #622@1: 33627 keys, 2254722 bytes
+2022/10/03-16:39:47.776 36e8 Generated table #623@1: 28174 keys, 2269339 bytes
+2022/10/03-16:39:48.040 36e8 Generated table #624@1: 35223 keys, 2258093 bytes
+2022/10/03-16:39:48.123 36e8 Generated table #625@1: 28270 keys, 2274889 bytes
+2022/10/03-16:39:48.380 36e8 Generated table #626@1: 29871 keys, 2268744 bytes
+2022/10/03-16:39:48.663 36e8 Generated table #627@1: 79351 keys, 2267934 bytes
+2022/10/03-16:39:48.950 36e8 Generated table #628@1: 88049 keys, 2310472 bytes
+2022/10/03-16:39:49.122 36e8 Generated table #629@1: 23396 keys, 2192314 bytes
+2022/10/03-16:39:49.341 36e8 Generated table #630@1: 70349 keys, 2212519 bytes
+2022/10/03-16:39:49.395 36e8 Generated table #631@1: 17657 keys, 416589 bytes
+2022/10/03-16:39:49.395 36e8 Compacted 1@1 + 10@2 files => 20725615 bytes
+2022/10/03-16:39:49.396 36e8 compacted to: files[ 0 0 10 0 0 0 0 ]
+2022/10/03-16:39:49.396 36e8 Delete type=2 #606
+2022/10/03-16:39:49.397 36e8 Delete type=2 #610
+2022/10/03-16:39:49.397 36e8 Delete type=2 #611
+2022/10/03-16:39:49.397 36e8 Delete type=2 #612
+2022/10/03-16:39:49.397 36e8 Delete type=2 #613
+2022/10/03-16:39:49.397 36e8 Delete type=2 #614
+2022/10/03-16:39:49.397 36e8 Delete type=2 #615
+2022/10/03-16:39:49.397 36e8 Delete type=2 #616
+2022/10/03-16:39:49.397 36e8 Delete type=2 #617
+2022/10/03-16:39:49.397 36e8 Delete type=2 #618
+2022/10/03-16:39:49.397 36e8 Delete type=2 #621

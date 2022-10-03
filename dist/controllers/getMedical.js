@@ -9,7 +9,6 @@ const postgres_1 = require("../config/postgres");
 const pgp = require('pg-promise')({
     capSQL: true
 });
-const datetime = require('node-datetime');
 const NAMESPACE = 'API';
 const getMedical = async (req, res, next) => {
     logging_1.default.info(NAMESPACE, 'Medical result:');

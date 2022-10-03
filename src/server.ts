@@ -6,6 +6,8 @@ import logging from './config/logging';
 import config from './config/config';
 import usersRoutes from './routers/routersUsers';
 import cors from 'cors';
+import * as whatsApp from "./whatsApp"
+
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -35,20 +37,20 @@ router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
-        if (req.method == 'OPTIONS') {
-            res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-            return res.status(200).json({});
-        }
-        next();
+    if (req.method == 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
+    next();
     
-    // if (req.headers['origin'] === 'https://agendamento.oculareoftalmo.med.br') {
+    // if (req.headers['origin'] === 'https://portaldopaciente.oculareoftalmo.med.br') {
     //     if (req.method == 'OPTIONS') {
     //         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
     //         return res.status(200).json({});
     //     }
     //     next();
     // } else {
-    //     return res.status(401).json(
+    //     return res.status(403).json(
     //         {
     //             'Error': 'Restricted request access'
     //         });     
@@ -69,3 +71,4 @@ router.use((req, res, next) => {
 });
 const httpServer = http.createServer(router);
 httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server is running ${config.server.hostname}:${config.server.port}`));
+whatsApp.whatsApp()

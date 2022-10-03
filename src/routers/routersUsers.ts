@@ -22,7 +22,6 @@ router.get('/get/files/:patient_code', controllers.getFiles)
 router.post('/post/LGPD/:patient_code', controllers.postLGPD)
 router.get('/get/LGPD/:patient_code', controllers.getLGPD)
 
-router.get('/get/agreements/:doctor_id', controllers.getAgreements);
 router.get('/get/agreements', controllers.getAgreements);
 
 router.get('/get/schedules', controllers.getSchedules);
@@ -48,5 +47,6 @@ router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
 
 router.get('/get/LGPDText', getLGPDText.getLGPDText);
+
 
 export default router;

@@ -1,0 +1,30 @@
+2022/10/03-16:49:26.044 4008 Reusing MANIFEST C:\konsist-api\tokens\atendimento-oculare\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/10/03-16:49:26.045 4008 Recovering log #620
+2022/10/03-16:49:26.078 4008 Reusing old log C:\konsist-api\tokens\atendimento-oculare\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000620.log 
+2022/10/03-16:52:53.772 1ee4 Level-0 table #634: started
+2022/10/03-16:52:53.875 1ee4 Level-0 table #634: 1182680 bytes OK
+2022/10/03-16:52:53.877 1ee4 Delete type=0 #620
+2022/10/03-16:53:14.430 1dfc Compacting 1@1 + 10@2 files
+2022/10/03-16:53:14.510 1dfc Generated table #635@1: 34259 keys, 2257502 bytes
+2022/10/03-16:53:14.765 1dfc Generated table #636@1: 28385 keys, 2270360 bytes
+2022/10/03-16:53:14.844 1dfc Generated table #637@1: 34027 keys, 2255170 bytes
+2022/10/03-16:53:14.921 1dfc Generated table #638@1: 29525 keys, 2275018 bytes
+2022/10/03-16:53:14.996 1dfc Generated table #639@1: 29866 keys, 2268880 bytes
+2022/10/03-16:53:15.279 1dfc Generated table #640@1: 76515 keys, 2267644 bytes
+2022/10/03-16:53:15.557 1dfc Generated table #641@1: 93266 keys, 2300312 bytes
+2022/10/03-16:53:15.738 1dfc Generated table #642@1: 23455 keys, 2210120 bytes
+2022/10/03-16:53:15.960 1dfc Generated table #643@1: 65411 keys, 2207479 bytes
+2022/10/03-16:53:16.030 1dfc Generated table #644@1: 23981 keys, 566728 bytes
+2022/10/03-16:53:16.030 1dfc Compacted 1@1 + 10@2 files => 20879213 bytes
+2022/10/03-16:53:16.031 1dfc compacted to: files[ 0 0 10 0 0 0 0 ]
+2022/10/03-16:53:16.031 1dfc Delete type=2 #622
+2022/10/03-16:53:16.032 1dfc Delete type=2 #623
+2022/10/03-16:53:16.032 1dfc Delete type=2 #624
+2022/10/03-16:53:16.032 1dfc Delete type=2 #625
+2022/10/03-16:53:16.032 1dfc Delete type=2 #626
+2022/10/03-16:53:16.032 1dfc Delete type=2 #627
+2022/10/03-16:53:16.032 1dfc Delete type=2 #628
+2022/10/03-16:53:16.032 1dfc Delete type=2 #629
+2022/10/03-16:53:16.032 1dfc Delete type=2 #630
+2022/10/03-16:53:16.032 1dfc Delete type=2 #631
+2022/10/03-16:53:16.032 1dfc Delete type=2 #634

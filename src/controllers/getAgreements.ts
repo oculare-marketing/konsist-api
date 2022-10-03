@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import logging from '../config/logging';
 import { Connect, connection } from '../config/postgres';
-import { filteredAgreements } from '../data/filteredAgreements';
 const pgp = require('pg-promise')({
     capSQL: true
 });
@@ -22,22 +21,8 @@ export const getAgreements = async (req: Request, res: Response, next: NextFunct
       let result: AgreementsProps[] = []
       let restrictedAgreements: string[];
       let query = `SELECT tc.nom_convenio, tc.id_convenio FROM tab_convenio tc WHERE tc.ind_status = 'Ativo' AND COALESCE(tc.ind_oculto_atendimento, 'N') <> 'S'`;
-      const resultAgreements = await data.query(query);
-      if(doctorId === undefined){
-        result = resultAgreements;
-      }else{
-        filteredAgreements.filter(val => {
-          if(val.id === parseInt(doctorId)){
-              restrictedAgreements = val.agreements
-          }
-        })
-        resultAgreements.filter((val: AgreementsProps) =>{
-          
-          if(!restrictedAgreements.includes(val.nom_convenio)){
-              result.push(val);
-          }
-        })
-      }
+      result =  await data.query(query);
+      
       return res.status(200).json({
         result            
       });       

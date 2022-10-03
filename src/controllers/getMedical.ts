@@ -4,7 +4,6 @@ import { Connect, connection } from '../config/postgres';
 const pgp = require('pg-promise')({
     capSQL: true
 });
-const datetime = require('node-datetime');
 
 const NAMESPACE = 'API';
 
