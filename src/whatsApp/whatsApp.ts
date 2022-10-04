@@ -69,7 +69,7 @@ export  const  whatsApp = () =>{
     })
     .then(async (client: Whatsapp) => {
         await callSheet();
-        cron.schedule('0 8 * * Mon, Tue, Wed, Thu, Fry, Sun', () => {
+        cron.schedule('0 8 * * *', () => {
             
             pacients.map((pacient, index) =>{
                 console.log(pacient.number, pacient.name, pacient.dateSchedule, pacient.schedule, pacient.doctorName)
