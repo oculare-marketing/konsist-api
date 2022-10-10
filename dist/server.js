@@ -10,6 +10,7 @@ const logging_1 = __importDefault(require("./config/logging"));
 const config_1 = __importDefault(require("./config/config"));
 const routersUsers_1 = __importDefault(require("./routers/routersUsers"));
 const cors_1 = __importDefault(require("cors"));
+const venom_bot_1 = require("venom-bot");
 const NAMESPACE = 'Server';
 const router = (0, express_1.default)();
 /** Log the request */
@@ -36,7 +37,7 @@ router.use((req, res, next) => {
         return res.status(200).json({});
     }
     next();
-    // if (req.headers['origin'] === 'https://agendamento.oculareoftalmo.med.br') {
+    // if (req.headers['origin'] === 'https://portaldopaciente.oculareoftalmo.med.br') {
     //     if (req.method == 'OPTIONS') {
     //         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
     //         return res.status(200).json({});
@@ -61,4 +62,14 @@ router.use((req, res, next) => {
 });
 const httpServer = http_1.default.createServer(router);
 httpServer.listen(config_1.default.server.port, () => logging_1.default.info(NAMESPACE, `Server is running ${config_1.default.server.hostname}:${config_1.default.server.port}`));
+(0, venom_bot_1.create)({
+    session: 'atendimento-oculare',
+    multidevice: true // for version not multidevice use false.(default: true)
+})
+    .then(async (clientWpp) => {
+    global.client = clientWpp;
+})
+    .catch((erro) => {
+    console.log(erro);
+});
 //# sourceMappingURL=server.js.map

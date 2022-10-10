@@ -8,6 +8,7 @@ import * as postTwilioConfirmation from '../twilioConfirmation';
 import * as postGoogleCalendar from '../googleCalendar';
 import * as postGoogleSheets from '../googleSheets';
 import * as getLGPDText from "../LGPDText"
+import * as whatsApp from "../whatsApp"
 
 const router = express.Router();
 
@@ -47,6 +48,9 @@ router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
 
 router.get('/get/LGPDText', getLGPDText.getLGPDText);
+
+router.get('/get/whatsAppPacients', whatsApp.getWhatsAppPacients)
+router.post('/post/send-message', whatsApp.whatsApp)
 
 
 export default router;

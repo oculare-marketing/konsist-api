@@ -1,4 +1,3 @@
-import https from 'https';
 import http from 'http';
 import bodyParser from 'body-parser';
 import express from 'express';
@@ -6,7 +5,7 @@ import logging from './config/logging';
 import config from './config/config';
 import usersRoutes from './routers/routersUsers';
 import cors from 'cors';
-import * as whatsApp from "./whatsApp"
+import { create, Whatsapp } from 'venom-bot';
 
 
 const NAMESPACE = 'Server';
@@ -71,4 +70,13 @@ router.use((req, res, next) => {
 });
 const httpServer = http.createServer(router);
 httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server is running ${config.server.hostname}:${config.server.port}`));
-whatsApp.whatsApp()
+create({
+    session: 'atendimento-oculare', //name of session
+    multidevice: true // for version not multidevice use false.(default: true)
+})
+.then( async (clientWpp: Whatsapp) => {
+    global.client = clientWpp;
+})
+.catch((erro: any) => {
+    console.log(erro);
+});

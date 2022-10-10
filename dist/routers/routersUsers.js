@@ -35,6 +35,7 @@ const postTwilioConfirmation = __importStar(require("../twilioConfirmation"));
 const postGoogleCalendar = __importStar(require("../googleCalendar"));
 const postGoogleSheets = __importStar(require("../googleSheets"));
 const getLGPDText = __importStar(require("../LGPDText"));
+const whatsApp = __importStar(require("../whatsApp"));
 const router = express_1.default.Router();
 router.post('/create/user', controllers.createUsers);
 router.get('/get/users', controllers.getUsers);
@@ -59,5 +60,7 @@ router.post('/post/confirmation', postTwilioConfirmation.postTwilioConfirmation)
 router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
 router.get('/get/LGPDText', getLGPDText.getLGPDText);
+router.get('/get/whatsAppPacients', whatsApp.getWhatsAppPacients);
+router.post('/post/send-message', whatsApp.whatsApp);
 exports.default = router;
 //# sourceMappingURL=routersUsers.js.map
