@@ -60,7 +60,7 @@ router.post('/post/confirmation', postTwilioConfirmation.postTwilioConfirmation)
 router.post('/post/calendar', postGoogleCalendar.postGoogleCalendar);
 router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
 router.get('/get/LGPDText', getLGPDText.getLGPDText);
-router.get('/get/whatsAppPacients', whatsApp.getWhatsAppPacients);
+router.get('/get/whatsAppPacients/:days', whatsApp.getWhatsAppPacients);
 router.post('/post/send-message', whatsApp.whatsApp);
 exports.default = router;
 //# sourceMappingURL=routersUsers.js.map

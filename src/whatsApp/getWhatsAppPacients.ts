@@ -15,10 +15,11 @@ interface SheetProps {
 const NAMESPACE = 'API';
 
 export const getWhatsAppPacients = async (req: Request, res: Response) =>{
-    
+    const days = (parseInt(req.params.days) + 1).toString();
+    console.log(days)
     Connect()
       .then( async data =>{                   
-        let query = 'SELECT * FROM vw_informacoes_agenda WHERE dat_agenda = CURRENT_DATE + 1;';            
+        let query = `SELECT * FROM vw_informacoes_agenda WHERE dat_agenda = CURRENT_DATE + ${days};`;            
         const result: SheetProps = await data.query(query)
         logging.info(NAMESPACE, 'Getting all agrements: ', result);
         

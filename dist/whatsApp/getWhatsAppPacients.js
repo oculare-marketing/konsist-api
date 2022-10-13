@@ -8,9 +8,11 @@ const postgres_1 = require("../config/postgres");
 const logging_1 = __importDefault(require("../config/logging"));
 const NAMESPACE = 'API';
 const getWhatsAppPacients = async (req, res) => {
+    const days = (parseInt(req.params.days) + 1).toString();
+    console.log(days);
     (0, postgres_1.Connect)()
         .then(async (data) => {
-        let query = 'SELECT * FROM vw_informacoes_agenda WHERE dat_agenda = CURRENT_DATE + 1;';
+        let query = `SELECT * FROM vw_informacoes_agenda WHERE dat_agenda = CURRENT_DATE + ${days};`;
         const result = await data.query(query);
         logging_1.default.info(NAMESPACE, 'Getting all agrements: ', result);
         return res.status(200).json({
