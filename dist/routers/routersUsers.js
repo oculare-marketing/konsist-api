@@ -40,6 +40,7 @@ const router = express_1.default.Router();
 router.post('/create/user', controllers.createUsers);
 router.get('/get/users', controllers.getUsers);
 router.get('/get/user/:cpf', controllers.getUsersCPF);
+router.get('/get/userName/:name', controllers.getUsersName);
 router.put('/put/user', controllers.putUser);
 router.get('/get/file/:file_id', controllers.getFilesId);
 router.get('/get/files/:patient_code', controllers.getFiles);

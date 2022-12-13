@@ -1,6 +1,7 @@
 export * from "./createUsers";
 export * from "./getUsers";
 export * from "./getUsersCPF";
+export * from "./getUserName";
 export * from "./getFileId"
 export * from "./getFiles"
 export * from "./putUser"

@@ -17,6 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./createUsers"), exports);
 __exportStar(require("./getUsers"), exports);
 __exportStar(require("./getUsersCPF"), exports);
+__exportStar(require("./getUserName"), exports);
 __exportStar(require("./getFileId"), exports);
 __exportStar(require("./getFiles"), exports);
 __exportStar(require("./putUser"), exports);
