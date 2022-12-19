@@ -1,2 +1,2 @@
 export * from './whatsApp'
-export * from './getWhatsAppPacients'
+export * from './getWhatsAppPatients'

@@ -5,7 +5,7 @@ import logging from '../config/logging';
 import bcrypt from "bcrypt";
 import { config } from "dotenv"
 
-interface PacientProps {
+interface PatientProps {
     nom_paciente_completo: string;
     nom_medico: string;
     des_hora: string;
@@ -23,7 +23,7 @@ interface AppointmentProps {
 
 const NAMESPACE = 'API';
 
-export const getWhatsAppPacients = async (req: Request, res: Response) =>{
+export const getWhatsAppPatients = async (req: Request, res: Response) =>{
     const days = (parseInt(req.params.days) + 1).toString();
     const token = req.body.token;
     const filtered = req.body.filtered;
@@ -35,8 +35,8 @@ export const getWhatsAppPacients = async (req: Request, res: Response) =>{
             Connect()
             .then( async data =>{                 
                 const query = `SELECT * FROM vw_informacoes_agenda WHERE dat_agenda = CURRENT_DATE + ${days};`;            
-                let result: PacientProps[] = await data.query(query)
-                let finalResult: PacientProps[] = [];
+                let result: PatientProps[] = await data.query(query)
+                let finalResult: PatientProps[] = [];
                 if(filtered){
                     result.map(async (pat, index, list) =>{
                         let last = 0;

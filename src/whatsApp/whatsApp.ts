@@ -1,16 +1,16 @@
 import { create, Whatsapp } from 'venom-bot';
 import { Response, Request } from 'express';
 
-interface PacientProps {
+interface PatientProps {
     number: string;
     message: string;
 }
 
 export  const  whatsApp = (req: Request, res: Response) =>{
-    const pacient = req.body as PacientProps;
-    console.log(pacient)
-    global.client.sendText(pacient.number, 
-        `${pacient.message}`
+    const patient = req.body as PatientProps;
+    console.log(patient)
+    global.client.sendText(patient.number, 
+        `${patient.message}`
     )
     .then((result) => {
         res.status(200).json(result); //return object success

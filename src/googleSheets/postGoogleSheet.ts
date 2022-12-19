@@ -15,11 +15,11 @@ export const postGoogleSheet = async (req: Request, res: Response) => {
     schedule: string,
     email: string,
     phoneNum: string,
-    newPacient: string,
+    newPatient: string,
     loginDate: string
   } 
   const body = req.body as RequestBody;
-  const { name, birthDate, doctorName, date, schedule, email, phoneNum, newPacient, loginDate } = body;
+  const { name, birthDate, doctorName, date, schedule, email, phoneNum, newPatient, loginDate } = body;
 
   const auth = new google.auth.GoogleAuth({
     keyFile: "credentials.json",
@@ -49,7 +49,7 @@ export const postGoogleSheet = async (req: Request, res: Response) => {
     valueInputOption: "USER_ENTERED",
     requestBody:{
         values: [
-            [name, birthDate, doctorName, date, schedule, email, phoneNum, newPacient, loginDate]
+            [name, birthDate, doctorName, date, schedule, email, phoneNum, newPatient, loginDate]
         ]
     },
   })

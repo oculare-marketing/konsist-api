@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.whatsApp = void 0;
 const whatsApp = (req, res) => {
-    const pacient = req.body;
-    console.log(pacient);
-    global.client.sendText(pacient.number, `${pacient.message}`)
+    const patient = req.body;
+    console.log(patient);
+    global.client.sendText(patient.number, `${patient.message}`)
         .then((result) => {
         res.status(200).json(result); //return object success
     })

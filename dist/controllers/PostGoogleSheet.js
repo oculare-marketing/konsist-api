@@ -10,7 +10,7 @@ const NAMESPACE = 'API';
 const postGoogleSheet = async (req, res) => {
     logging_1.default.info(NAMESPACE, 'GoogleSheet');
     const body = req.body;
-    const { name, birthDate, doctorName, date, schedule, email, phoneNum, newPacient, loginDate } = body;
+    const { name, birthDate, doctorName, date, schedule, email, phoneNum, newPatient, loginDate } = body;
     const auth = new googleapis_1.google.auth.GoogleAuth({
         keyFile: "credentials.json",
         scopes: "https://www.googleapis.com/auth/spreadsheets"
@@ -34,7 +34,7 @@ const postGoogleSheet = async (req, res) => {
         valueInputOption: "USER_ENTERED",
         requestBody: {
             values: [
-                [name, birthDate, doctorName, date, schedule, email, phoneNum, newPacient, loginDate]
+                [name, birthDate, doctorName, date, schedule, email, phoneNum, newPatient, loginDate]
             ]
         },
     });

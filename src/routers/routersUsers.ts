@@ -50,7 +50,7 @@ router.post('/post/sheet', postGoogleSheets.postGoogleSheet);
 
 router.get('/get/LGPDText', getLGPDText.getLGPDText);
 
-router.post('/get/whatsAppPacients/:days', whatsApp.getWhatsAppPacients)
+router.post('/get/whatsAppPatients/:days', whatsApp.getWhatsAppPatients)
 router.post('/post/send-message', whatsApp.whatsApp)
 
 
