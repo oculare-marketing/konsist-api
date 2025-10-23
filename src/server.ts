@@ -5,7 +5,7 @@ import logging from './config/logging';
 import config from './config/config';
 import usersRoutes from './routers/routersUsers';
 import cors from 'cors';
-import { create, Whatsapp } from 'venom-bot';
+
 
 
 const NAMESPACE = 'Server';
@@ -32,7 +32,7 @@ router.use(bodyParser.json());
 router.use((req, res, next) => {
 
     router.use(cors());
-    const whitelist = ['hhttps://agendamento.oculareoftalmo.med.br', 'http://127.0.0.1']
+    const whitelist = ['http://portaldopaciente.oculareoftalmo.med.br', 'http://127.0.0.1']
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
@@ -42,7 +42,7 @@ router.use((req, res, next) => {
     }
     next();
     
-    // if (req.headers['origin'] === 'https://portaldopaciente.oculareoftalmo.med.br' || req.headers['origin'] === 'https://confirmacao-front.vercel.app') {
+    // if (req.headers['origin'] === 'http://portaldopaciente.oculareoftalmo.med.br' || req.headers['origin'] === 'https://confirmacao-front.vercel.app') {
     //     if (req.method == 'OPTIONS') {
     //         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
     //         return res.status(200).json({});
@@ -70,13 +70,3 @@ router.use((req, res, next) => {
 });
 const httpServer = http.createServer(router);
 httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server is running ${config.server.hostname}:${config.server.port}`));
-create({
-    session: 'atendimento-oculare', //name of session
-    multidevice: true // for version not multidevice use false.(default: true)
-})
-.then( async (clientWpp: Whatsapp) => {
-    global.client = clientWpp;
-})
-.catch((erro: any) => {
-    console.log(erro);
-});
